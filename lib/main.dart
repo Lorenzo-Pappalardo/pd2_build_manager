@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'build.dart';
 import 'theme.dart';
+import 'welcome.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,9 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme,
       title: "PD2 Build Manager",
-      home: Scaffold(
-      ),
-      //routes:, TO-DO
+      initialRoute: '/',
+      routes: {
+        '/': (context) => WelcomePage(),
+        '/Build': (context) => Build(),
+        '/SavedBuilds': (context) => null,
+      },
     );
   }
 }
