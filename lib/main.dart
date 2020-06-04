@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'build.dart';
-import 'theme.dart';
-import 'welcome.dart';
+import 'package:pd2buildmanager/CreateBuild.dart';
+import 'package:pd2buildmanager/WelcomePage.dart';
+import 'package:pd2buildmanager/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => WelcomePage(),
-        '/Build': (context) => Build(),
+        '/CreateBuild': (context) => CreateBuild(),
         '/SavedBuilds': (context) => null,
       },
     );

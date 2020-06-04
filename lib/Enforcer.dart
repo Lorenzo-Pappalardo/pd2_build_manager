@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Mastermind extends StatelessWidget {
+class Enforcer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: <Widget>[
-          Text("MASTERMIND"),
+          Text("ENFORCER"),
         ],
       ),
     );

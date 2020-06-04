@@ -4,7 +4,6 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -16,12 +15,10 @@ class WelcomePage extends StatelessWidget {
             alignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               FlatButton(
-                color: Theme.of(context).buttonColor,
                 child: Text("Create a new build"),
-                onPressed: () => Navigator.pushNamed(context, '/Build'),
+                onPressed: () => Navigator.pushNamed(context, '/CreateBuild'),
               ),
               FlatButton(
-                color: Theme.of(context).buttonColor,
                 child: Text("View saved builds"),
                 onPressed: () => Navigator.pushNamed(context, '/SavedBuilds'),
               ),
