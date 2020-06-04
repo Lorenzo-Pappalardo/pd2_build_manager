@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pd2buildmanager/Enforcer.dart';
 import 'package:pd2buildmanager/Mastermind.dart';
-import 'package:pd2buildmanager/Variables.dart';
+import 'package:pd2buildmanager/SkillTrees.dart';
+import 'package:provider/provider.dart';
 
-//class AppDrawer extends StatelessWidget {
-class AppDrawer extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _AppDrawerState();
-}
-
-class _AppDrawerState extends State<AppDrawer> {
+class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final SkillTrees skillTrees = Provider.of<SkillTrees>(context);
+
     return Drawer(
       child: ListView(
         children: <Widget>[
@@ -24,10 +21,15 @@ class _AppDrawerState extends State<AppDrawer> {
           ListTile(
             trailing: Icon(
               Icons.save,
-              color: Theme.of(context).iconTheme.color,
+              color: Theme
+                  .of(context)
+                  .iconTheme
+                  .color,
             ),
             title: Text("Save"),
-            onTap: null,
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
           Divider(
             color: Colors.white,
@@ -35,18 +37,14 @@ class _AppDrawerState extends State<AppDrawer> {
           ListTile(
             title: Text("Mastermind"),
             onTap: () {
-              setState(() {
-                Variables.skillTree = Mastermind();
-              });
+              skillTrees.setInstance(Mastermind());
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: Text("Enforcer"),
             onTap: () {
-              setState(() {
-                Variables.skillTree = Enforcer();
-              });
+              skillTrees.setInstance(Enforcer());
               Navigator.pop(context);
             },
           ),
@@ -56,18 +54,28 @@ class _AppDrawerState extends State<AppDrawer> {
           ListTile(
             trailing: Icon(
               Icons.restore,
-              color: Theme.of(context).iconTheme.color,
+              color: Theme
+                  .of(context)
+                  .iconTheme
+                  .color,
             ),
             title: Text("Reset this tree"),
-            onTap: null,
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
           ListTile(
             trailing: Icon(
               Icons.delete,
-              color: Theme.of(context).iconTheme.color,
+              color: Theme
+                  .of(context)
+                  .iconTheme
+                  .color,
             ),
             title: Text("Reset all trees"),
-            onTap: null,
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       ),

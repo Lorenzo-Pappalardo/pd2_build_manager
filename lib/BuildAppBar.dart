@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pd2buildmanager/Variables.dart';
+import 'package:pd2buildmanager/SkillTrees.dart';
+import 'package:provider/provider.dart';
 
 class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -9,10 +10,12 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SkillTrees skillTrees = Provider.of<SkillTrees>(context);
+
     return AppBar(
       centerTitle: true,
       title: FlatButton(
-        child: Text(Variables.buildName),
+        child: Text(skillTrees.buildName),
         onPressed: () => showDialog(
           context: context,
           barrierDismissible: true,
@@ -26,7 +29,7 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
               FlatButton(
                 child: Text("Submit"),
                 onPressed: () {
-                  Variables.buildName = _nameController.text;
+                  skillTrees.changeBuildName(_nameController.text);
                   Navigator.of(context).pop();
                 },
               ),
