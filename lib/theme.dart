@@ -32,4 +32,5 @@ final ThemeData appTheme = ThemeData(
     backgroundColor: Colors.blue[900],
     titleTextStyle: TextStyle(color: Colors.white),
   ),
+  cardColor: Colors.blue[900],
 );
