@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class SkillCards extends StatelessWidget {
-  IconData icon;
-  String name;
+  final String logoName;
+  final String name;
   int level;
 
-  final int UNSELECTED = 0;
-  final int BASIC = 1;
-  final int ACED = 2;
+  static const int UNSELECTED = 0;
+  static const int BASIC = 1;
+  static const int ACED = 2;
 
-  SkillCards({this.icon, this.name, this.level});
+  SkillCards({this.logoName, this.name}) {
+    level = 0;
+  }
 
   void levelUp() {
     if (level == ACED)
@@ -28,11 +30,14 @@ class SkillCards extends StatelessWidget {
         );
       },
       child: Card(
-        child: Column(
-          children: <Widget>[
-            Icon(icon),
-            Text(name),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Column(
+            children: <Widget>[
+              Image.asset(logoName),
+              Text(name),
+            ],
+          ),
         ),
       ),
     );

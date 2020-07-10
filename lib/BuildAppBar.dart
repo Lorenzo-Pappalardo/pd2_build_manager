@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pd2buildmanager/SkillTrees.dart';
+import 'package:pd2buildmanager/MyChangeNotifier.dart';
 import 'package:provider/provider.dart';
 
 class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,12 +10,13 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SkillTrees skillTrees = Provider.of<SkillTrees>(context);
+    final MyChangeNotifier myChangeNotifier =
+        Provider.of<MyChangeNotifier>(context);
 
     return AppBar(
       centerTitle: true,
       title: FlatButton(
-        child: Text(skillTrees.buildName),
+        child: Text(myChangeNotifier.buildName),
         onPressed: () => showDialog(
           context: context,
           barrierDismissible: true,
@@ -29,7 +30,7 @@ class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {
               FlatButton(
                 child: Text("Submit"),
                 onPressed: () {
-                  skillTrees.changeBuildName(_nameController.text);
+                  myChangeNotifier.changeBuildName(_nameController.text);
                   Navigator.of(context).pop();
                 },
               ),
