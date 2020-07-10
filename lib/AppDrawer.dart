@@ -22,10 +22,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             trailing: Icon(
               Icons.save,
-              color: Theme
-                  .of(context)
-                  .iconTheme
-                  .color,
+              color: Theme.of(context).iconTheme.color,
             ),
             title: Text("Save"),
             onTap: () {
@@ -38,7 +35,8 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: Text("Mastermind"),
             onTap: () {
-              myChangeNotifier.setInstance(Mastermind());
+              myChangeNotifier.setInstance(
+                  Mastermind(subtree: 0, myChangeNotifier: myChangeNotifier));
               Navigator.pop(context);
             },
           ),
