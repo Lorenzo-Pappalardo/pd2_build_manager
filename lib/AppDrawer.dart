@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pd2buildmanager/MyChangeNotifier.dart';
+import 'package:pd2buildmanager/skill_trees/enforcer/Enforcer.dart';
+import 'package:pd2buildmanager/skill_trees/mastermind/Mastermind.dart';
 import 'package:provider/provider.dart';
-
-import 'file:///H:/AppProjects/pd2_build_manager/lib/skill_trees/mastermind/Mastermind.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -35,15 +35,18 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             title: Text("Mastermind"),
             onTap: () {
-              myChangeNotifier.setInstance(
-                  Mastermind(subtree: 0, myChangeNotifier: myChangeNotifier));
+              myChangeNotifier.setInstance(Mastermind(
+                myChangeNotifier: myChangeNotifier,
+              ));
               Navigator.pop(context);
             },
           ),
           ListTile(
             title: Text("Enforcer"),
             onTap: () {
-              myChangeNotifier.setInstance(null);
+              myChangeNotifier.setInstance(Enforcer(
+                myChangeNotifier: myChangeNotifier,
+              ));
               Navigator.pop(context);
             },
           ),

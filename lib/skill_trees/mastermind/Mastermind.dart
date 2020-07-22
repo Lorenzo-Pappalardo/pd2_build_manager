@@ -9,7 +9,7 @@ class Mastermind extends SkillTree {
   int subtree;
   MyChangeNotifier myChangeNotifier;
 
-  Mastermind({@required this.subtree, @required this.myChangeNotifier});
+  Mastermind({@required this.myChangeNotifier, this.subtree = 0});
 
   @override
   Widget getSubtreeBody() {
@@ -28,17 +28,19 @@ class Mastermind extends SkillTree {
           FlatButton(
             child: Text("Medic"),
             onPressed: () => myChangeNotifier.setInstance(
-                Mastermind(subtree: 0, myChangeNotifier: myChangeNotifier)),
+                Mastermind(myChangeNotifier: myChangeNotifier, subtree: 0)),
           ),
           FlatButton(
             child: Text("Controller"),
-            onPressed: () => myChangeNotifier.setInstance(
-                Mastermind(subtree: 1, myChangeNotifier: myChangeNotifier)),
+            onPressed: () =>
+                myChangeNotifier.setInstance(
+                    Mastermind(myChangeNotifier: myChangeNotifier, subtree: 1)),
           ),
           FlatButton(
             child: Text("Sharpshooter"),
-            onPressed: () => myChangeNotifier.setInstance(
-                Mastermind(subtree: 2, myChangeNotifier: myChangeNotifier)),
+            onPressed: () =>
+                myChangeNotifier.setInstance(
+                    Mastermind(myChangeNotifier: myChangeNotifier, subtree: 2)),
           ),
         ],
       ),
